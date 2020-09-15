@@ -7,4 +7,8 @@
     <select id="findById" parameterType="long" resultType="com.example.demo.entity.Goods">
         select * from t_goods where good_id = #{value}
     </select>
+
+    <select id="findByAll" resultType="com.example.demo.entity.Goods">
+        select * from t_goods
+    </select>
 </mapper>

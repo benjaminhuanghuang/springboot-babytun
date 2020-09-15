@@ -23,6 +23,8 @@ public class GoodsController {
         // use the resources/templates/goods.ftl
         ModelAndView mav = new ModelAndView("/goods");
         Goods goods = goodsService.getGoods(gid);
-        return mav.addObject("goods", goods);
+        mav.addObject("goods", goods);
+        mav.addObject("covers", goodsService.findCovers(gid));
+        return mav;
     }
 }

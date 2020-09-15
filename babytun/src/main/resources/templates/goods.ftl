@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> Test</title>
+    <title> ${goods.title} </title>
     <link href="./layui/css/layui.css" rel="stylesheet">
     <script src="./layui/layui.all.js"></script>
 
@@ -24,7 +24,16 @@
     </style>
   </head>
   <body>
-    <h1>Hello</h1>
+    <ul>
+
+    </ul>
+
+    <div>
+      ${goods.title}
+      ${goods.subTitle}
+      ${goods.currentPrice?string('$0.00')}
+      <#if goods.isFreeDelivery==1>Free Delivery</#if>
+    </div>
   </body>
 
 </html>

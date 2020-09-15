@@ -1,9 +1,5 @@
 # Maven + SpringBoot2 + MyBatis + MySQL + Redis Project
 
-SpringBoot work flow
-```
-View -> Controller -> Service -> DAO -> DB
-```
 
 ## Create Springboot projct
 - IDE IntelliJ, Install plugin **Spring Assistant** 
@@ -30,11 +26,14 @@ mybatis:
     map-underscore-to-camel-case: true          # conver data_table name to dataTable
 ```
 
+## Bulid the SpringBoot work flow
+```
+  View -> Controller -> Service -> DAO -> DB
+```
 - Put css, js, html template under the static foler
 
 - Add controller
 
-- Add entity class, dao class and MyBatis xml for the entity
-
 - Add service
 
+- Add entity class, dao class and MyBatis xml for the entity

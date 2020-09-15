@@ -5,5 +5,5 @@ import java.util.List;
 import com.example.demo.entity.GoodsParam;
 
 public interface GoodsParamDAO {
-    public List<GoodsParam> findById(Long goodsId);
+    public List<GoodsParam> findByGoodsId(Long goodsId);
 }

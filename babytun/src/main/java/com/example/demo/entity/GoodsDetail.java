@@ -38,6 +38,4 @@ public class GoodsDetail {
     public void setGdOrder(Integer gdOrder) {
         this.gdOrder = gdOrder;
     }
-
-
 }

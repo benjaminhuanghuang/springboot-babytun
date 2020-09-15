@@ -34,6 +34,24 @@
         </div>
       </#list>
     </div>
+
+     <div>
+      <#list details as d >
+        <div>
+          <img src="${d.gdPicUrl}" style="">
+        </div>
+      </#list>
+    </div>
+
+
+     <div>
+        <#list params as p >
+          <tr>
+            <td>${p.gpParamName}</td>
+            <td>${p.gpParamValue}</td>
+          </tr>
+        </#list>
+      </div>
     <div>
       ${goods.title}
       ${goods.subTitle}

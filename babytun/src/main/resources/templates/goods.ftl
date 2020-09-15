@@ -27,7 +27,13 @@
     <ul>
 
     </ul>
-
+    <div>
+      <#list covers as c >
+        <div>
+          <img src="${c.gcPicUrl}" style="">
+        </div>
+      </#list>
+    </div>
     <div>
       ${goods.title}
       ${goods.subTitle}

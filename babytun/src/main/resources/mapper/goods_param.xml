@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mappers 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.GoodsParamDAO">
+    <select id="findByGoodsId" parameterType="long" resultType="com.example.demo.entity.GoodsParam">
+        select * from t_goods_param where good_id = #{value} order by gp_order
+    </select>
+</mapper>

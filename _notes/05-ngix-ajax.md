@@ -1,4 +1,6 @@
 # 动静数据分类
+更有效的使用static page
+
 Using Ajax load dynamic data
 
 ## Take the Evaluate as the sample

@@ -12,7 +12,12 @@
 - distributed system      -> 高并发
 
 ## How
-- 在Redis中生成两个对象：produce list， user set
+在Redis中生成两个对象：produce list， user set
+
+produce list 的key是 seckill:count:seckill-id, value是produce list
+
+user set 的key是 seckill:users:seckill-id
+
 
 ## Second Kill data table
 t_promotion_seckill

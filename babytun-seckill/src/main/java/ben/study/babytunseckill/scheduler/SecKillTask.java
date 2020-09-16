@@ -31,6 +31,7 @@ public class SecKillTask {
             {
                 redisTemplate.opsForList().rightPush("seckill:count:"+ps.getPsId(), ps.getGoodsId());
             }
+            ps.setStatus(1);
             promotionSecKillDAO.update(ps);
         }
     }

@@ -8,4 +8,6 @@ public interface PromotionSecKillDAO {
     List<PromotionSecKill> findUnstartSecKill();
 
     void update(PromotionSecKill ps);
+
+    PromotionSecKill findById(Long psId);
 }

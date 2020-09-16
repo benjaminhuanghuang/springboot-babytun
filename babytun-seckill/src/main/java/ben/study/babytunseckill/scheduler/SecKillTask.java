@@ -2,6 +2,7 @@ package ben.study.babytunseckill.scheduler;
 
 import ben.study.babytunseckill.dao.PromotionSecKillDAO;
 import ben.study.babytunseckill.entity.PromotionSecKill;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +14,23 @@ public class SecKillTask {
     @Resource
     private PromotionSecKillDAO promotionSecKillDAO;
 
+    @Resource
+    private RedisTemplate redisTemplate;   // redis client provided by springboot
+
+
+
     @Scheduled(cron = "0/5 * * * * ?")
     public void startSecKill() {
         List<PromotionSecKill> list = promotionSecKillDAO.findUnstartSecKill();
         for (PromotionSecKill ps : list) {
             System.out.println(ps.getPsId() + "event is start");
-            ps.setStatus(1);
+            // clean
+            redisTemplate.delete("seckill:count:"+ps.getPsId());
+            // add items into product list in Redis
+            for(int i=0; i<ps.getPsCount(); i++)
+            {
+                redisTemplate.opsForList().rightPush("seckill:count:"+ps.getPsId(), ps.getGoodsId());
+            }
             promotionSecKillDAO.update(ps);
         }
     }

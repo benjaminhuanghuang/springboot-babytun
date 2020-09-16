@@ -58,6 +58,19 @@
       ${goods.currentPrice?string('$0.00')}
       <#if goods.isFreeDelivery==1>Free Delivery</#if>
     </div>
+
+    <script>
+      function(){
+        // layui contsins jQuery
+        var $ = layui.$;
+        $.getJSON("/evaluate/${goods.goodsId}", function (json){
+          // render evaluate
+        })
+      }
+    </script>
+    <div>
+
+    </div>
   </body>
 
 </html>

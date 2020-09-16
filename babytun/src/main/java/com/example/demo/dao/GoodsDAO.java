@@ -7,5 +7,5 @@ import java.util.List;
 public interface GoodsDAO {
     public Goods findById(Long goodsId);
     public List<Goods> findAllGoods();
-
+    public List<Goods> findLast5M();
 }

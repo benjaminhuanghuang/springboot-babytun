@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import freemarker.template.Configuration;
 //
 import com.example.demo.entity.Goods;
+import com.example.demo.entity.Evaluate;
 import com.example.demo.service.GoodsService;
 
 import java.io.File;
@@ -84,5 +85,11 @@ public class GoodsController {
             out.close();
         }
         return "OK";
+    }
+
+    @GetMapping("/evalutate/{gid}")
+    @ResponseBody
+    public List<Evaluate> findEvaluate(@PathVariable("grid") Long goodsId) {
+        return goodsService.findEvaluate(goodsId);
     }
 }

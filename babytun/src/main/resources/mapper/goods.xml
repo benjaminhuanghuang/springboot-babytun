@@ -11,4 +11,8 @@
     <select id="findByAll" resultType="com.example.demo.entity.Goods">
         select * from t_goods
     </select>
+
+    <select id="findLast5M" resultType="com.example.demo.entity.Goods">
+        select * from t_goods where last_update_time > now()- interval 5 minute
+    </select>
 </mapper>

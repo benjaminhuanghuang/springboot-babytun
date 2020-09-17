@@ -12,6 +12,10 @@
         select * from t_promotion_seckill where now() BETWEEN start_time AND end_time and status=0
     </select>
 
+    <select id="findExpiredSecKill" resultType="ben.study.babytunseckill.entity.PromotionSecKill">
+        select * from t_promotion_seckill where now() > end_time and status=1
+    </select>
+
     <select id="update" parameterType="ben.study.babytunseckill.entity.PromotionSecKill">
         update t_promotion_seckill SET goods_id = #{goodsId}, ps_count = #{psCount},
         current_price = #{currentPrice},

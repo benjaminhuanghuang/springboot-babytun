@@ -22,15 +22,6 @@ user set 的key是 seckill:users:seckill-id
 ## Second Kill data table
 t_promotion_seckill
 ```
-  ps_id            bgint    PK
-  goods_id         int
-  ps_count         int               # count
-  start_time       datetime
-  end_time         datetime
-  status           int               #
-  current_price    float
-```
-```
 CREATE TABLE `t_promotion_seckill` (
   `ps_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) NOT NULL,

@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface PromotionSecKillDAO {
     List<PromotionSecKill> findUnstartSecKill();
+    List<PromotionSecKill> findExpiredSecKill();
 
     void update(PromotionSecKill ps);
 

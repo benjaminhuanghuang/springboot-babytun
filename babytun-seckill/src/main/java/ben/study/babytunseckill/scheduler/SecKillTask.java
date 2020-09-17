@@ -18,21 +18,29 @@ public class SecKillTask {
     private RedisTemplate redisTemplate;   // redis client provided by springboot
 
 
-
     @Scheduled(cron = "0/5 * * * * ?")
     public void startSecKill() {
         List<PromotionSecKill> list = promotionSecKillDAO.findUnstartSecKill();
         for (PromotionSecKill ps : list) {
             System.out.println(ps.getPsId() + "event is start");
             // clean
-            redisTemplate.delete("seckill:count:"+ps.getPsId());
+            redisTemplate.delete("seckill:count:" + ps.getPsId());
             // add items into product list in Redis
-            for(int i=0; i<ps.getPsCount(); i++)
-            {
-                redisTemplate.opsForList().rightPush("seckill:count:"+ps.getPsId(), ps.getGoodsId());
+            for (int i = 0; i < ps.getPsCount(); i++) {
+                redisTemplate.opsForList().rightPush("seckill:count:" + ps.getPsId(), ps.getGoodsId());
             }
             ps.setStatus(1);
             promotionSecKillDAO.update(ps);
+        }
+    }
+
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void endSecKill() {
+        List<PromotionSecKill> list = promotionSecKillDAO.findExpiredSecKill();
+        for (PromotionSecKill ps : list) {
+            ps.setStatus(2);
+            promotionSecKillDAO.update(ps);
+            redisTemplate.delete("seckill:count:" + ps.getPsId());
         }
     }
 }
